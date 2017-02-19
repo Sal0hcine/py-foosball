@@ -22,3 +22,4 @@ class Goal(db.Model):
     playerId = db.Column(db.Integer, db.ForeignKey('player.id'), default=0)
     player = db.relationship('Player', backref=db.backref('goals', lazy='dynamic'))
     position = db.Column(db.String, default="")
+    ownGoal = db.Column(db.Boolean, default=False)

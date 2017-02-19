@@ -149,6 +149,7 @@ def claim_goals():
 
     goal.playerId = request.json['playerId']
     goal.position = request.json['pos']
+    goal.ownGoal = request.json['ownGoal']
 
     db.session.commit()
 
