@@ -135,7 +135,8 @@ def get_goals():
         goals.append({'id': goal.id,
                         'matchId': goal.matchId,
                       'playerId': goal.playerId,
-                      'pos': goal.position})
+                      'pos': goal.position,
+                      'ownGoal': goal.ownGoal})
 
     return jsonify({'goals': goals})
 
@@ -153,7 +154,7 @@ def claim_goals():
 
     db.session.commit()
 
-    return jsonify({'goal': {'id': goal.id, 'matchId': goal.matchId, 'playerId': goal.playerId}})
+    return jsonify({'goal': {'id': goal.id, 'matchId': goal.matchId, 'playerId': goal.playerId, 'ownGoal': goal.ownGoal}})
 
 @socketio.on('connect', namespace='/scores')
 def get_current_score():
